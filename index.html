@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<title>Sample Page Layout</title>
+	
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+
+		#hamburgerIcon {
+			display: none;
+		}
+		nav {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background-color: #333;
+			padding: 2rem;
+			color: white;
+			height: 2rem;
+			position: fixed;
+			width: 100%;
+			z-index: 8;
+			cursor: pointer;
+		}
+		nav ul {
+			list-style: none;
+			display: flex;
+			gap: 2rem;
+		}
+		nav ul li {
+			background: ;
+			padding: 0.8rem;
+		}
+		nav ul li:hover {
+			background-color: white;
+			padding: 0.8rem;
+			color: #333;
+		}
+		nav ul li:active {
+			background-color: #999;
+			padding: 0.8rem;
+			color: white;
+		}
+		
+		/* --------------------------- */
+		/* --------------------------- */
+		/* css for main drop down menu */
+		/* --------------------------- */
+		/* --------------------------- */
+		.dropMenu {
+			background-color: #333;
+			color: white;
+			padding: 0.5rem;
+			position: fixed;
+			top: 4.2rem;
+			right: 0.9rem;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			display: none;
+			z-index: 2;
+			cursor: pointer;
+		}
+		.dropMenu ul {
+			list-style: none;
+			gap: 0.9rem;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		.dropMenu ul li {
+			padding: 0.9rem;
+		}
+		.dropMenu ul li:hover {
+			background-color: white;
+			color: black;
+		}
+		.dropMenu ul li:active {
+			background-color: #999;
+			color: white;
+		}
+		
+		/* --------------------------- */
+		/* --------------------------- */
+		/* css for SUB drop down menu  */
+		/* --------------------------- */
+		/* --------------------------- */
+		
+		.subDropMenu {
+			background-color: #333;
+			color: white;
+			padding: 0.5rem;
+			position: fixed;
+			top: 15.5rem;
+			right: 6.9rem;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			display: none;
+			z-index: 3;
+			cursor: pointer;
+		}
+		.subDropMenu ul {
+			list-style: none;
+			gap: 0.9rem;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		.subDropMenu ul li {
+			padding: 0.9rem;
+		}
+		.subDropMenu ul li:hover {
+			background-color: white;
+			color: black;
+		}
+		.subDropMenu ul li:active {
+			background-color: #999;
+			color: white;
+		}
+		
+		@media (max-width: 650px) {
+			nav ul li:not(#hamburgerIcon) {
+				display: none;
+			}
+			nav ul #hamburgerIcon {
+				display: block;
+			}
+		}
+		
+		
+		/* Layouts CSS */
+		.layouts {
+			width: 100%;
+			height: 100vh;
+			background-color: gainsboro;
+		}
+		.layouts header {
+			width: 100%;
+			height: 6rem;
+			background-color: white;
+			position: absolute;
+			top: 4rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.layouts .content {
+			width: 100%;
+			height: 20rem;
+			background-color: #555;
+			position: absolute;
+			top: 10rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.layouts footer {
+			width: 100%;
+			height: 24rem;
+			background-color: #222;
+			position: absolute;
+			top: 30rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: white;
+		}
+	</style>
+	
+	<script>
+		function displayMainDropMenu() {
+			document.querySelector(".dropMenu").style.display = "block";
+		};
+		function displaySubDropMenu() {
+			document.querySelector(".subDropMenu").style.display = "block";
+		};
+		function hideSubDropMenu() {
+			document.querySelector(".subDropMenu").style.display = "none";
+		};
+		function hideAllDropMenu() {
+			document.querySelector(".dropMenu").style.display = "none";
+			document.querySelector(".subDropMenu").style.display = "none";
+		};
+	</script>
+	
+   </head>
+   <body>
+	<nav>
+		<h1>Logo</h1>
+		<ul>
+			<li onclick = "displayMainDropMenu()" id = "hamburgerIcon"><span class = "fa fa-hamburger"></span></li>
+			<li>Home</li>
+			<li>About</li>
+			<li>Contact</li>
+			<li>Service</li>
+		</ul>
+	</nav>
+	
+	<section class = "dropMenu">
+		<ul>
+			<li onclick = "hideSubDropMenu()">Home</li>
+			<li onclick = "hideSubDropMenu()">About</li>
+			<li onclick = "hideSubDropMenu()">Contact</li>
+			<li onclick = "displaySubDropMenu()">Service</li>
+		</ul>
+	</section>
+	
+	<section class = "subDropMenu">
+		<ul onclick = "hideAllDropMenu()">
+			<li>Coding</li>
+			<li>Graphics</li>
+			<li>Robotics</li>
+		</ul>
+	</section>
+	
+	<section class = "layouts">
+		<header>
+			<h1>Header</h1>
+		</header>
+		<div class = "content">
+			<h1 style = "color: white;">Contents/Body</h1>
+		</div>
+		<footer>
+			<h1>Footer</h1>
+		</footer>
+	</section>
+	
+   </body>
+</html>
+   
